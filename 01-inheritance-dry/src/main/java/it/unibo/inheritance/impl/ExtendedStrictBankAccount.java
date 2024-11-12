@@ -7,7 +7,15 @@ public class ExtendedStrictBankAccount extends SimpleBankAccount {
         super(id, balance);
     }
 
+    @Override
+    public withdraw(final int id, final double amount){
+        if(isWithdrawAllowed(amount))
+        super.withdraw(id, amount);
+    }
 
+    private boolean isWithdrawAllowed(final double amount) {
+        return balance >= amount;
+    }
     
 
 }
